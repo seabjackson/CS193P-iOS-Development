@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1264F8AD1DDC2F50000DF18F /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1264F8AC1DDC2F50000DF18F /* CalculatorBrain.swift */; };
 		2A0834D91CD92CAF0046FE21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0834D81CD92CAF0046FE21 /* AppDelegate.swift */; };
 		2A0834DB1CD92CAF0046FE21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0834DA1CD92CAF0046FE21 /* ViewController.swift */; };
 		2A0834DE1CD92CAF0046FE21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A0834DC1CD92CAF0046FE21 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1264F8AC1DDC2F50000DF18F /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		2A0834D51CD92CAF0046FE21 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0834D81CD92CAF0046FE21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A0834DA1CD92CAF0046FE21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				2A0834DA1CD92CAF0046FE21 /* ViewController.swift */,
+				1264F8AC1DDC2F50000DF18F /* CalculatorBrain.swift */,
 				2A0834DC1CD92CAF0046FE21 /* Main.storyboard */,
 				2A0834EA1CD933580046FE21 /* Supporting Files */,
 			);
@@ -99,12 +102,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Seab Jackson";
 				TargetAttributes = {
 					2A0834D41CD92CAF0046FE21 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 86SYWTB5Q2;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -144,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1264F8AD1DDC2F50000DF18F /* CalculatorBrain.swift in Sources */,
 				2A0834DB1CD92CAF0046FE21 /* ViewController.swift in Sources */,
 				2A0834D91CD92CAF0046FE21 /* AppDelegate.swift in Sources */,
 			);
@@ -184,8 +189,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -228,8 +235,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -248,6 +257,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -261,6 +271,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Seab-Jackson.Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -274,6 +285,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Seab-Jackson.Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

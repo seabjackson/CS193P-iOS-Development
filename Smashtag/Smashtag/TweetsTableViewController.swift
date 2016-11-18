@@ -8,9 +8,13 @@
 
 import UIKit
 import Twitter
+import CoreData
 
 class TweetsTableViewController: UITableViewController, UITextFieldDelegate
 {
+    // MARK : Model
+    var managedObjectContext: NSManagedObjectContext? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
+    
 
     // get an array of tweets
     var tweets = [Array<Twitter.Tweet>]() {
@@ -46,6 +50,7 @@ class TweetsTableViewController: UITableViewController, UITextFieldDelegate
                     if request == weakSelf?.lastTwitterRequest {
                         if !newTweets.isEmpty {
                             weakSelf?.tweets.insert(newTweets, atIndex: 0)
+                            weakSelf?.updateDatabase(newTweets)
                         }
                     }
                 }
@@ -53,6 +58,44 @@ class TweetsTableViewController: UITableViewController, UITextFieldDelegate
         }
     }
     
+    private func updateDatabase(newTweets: [Twitter.Tweet]) {
+        managedObjectContext?.performBlock {
+            for twitterInfo in newTweets {
+                // create a new unique tweet with that twitter info.
+                _ = Tweet.tweetWithTwitterInfo(twitterInfo, inManagedObjectContext: self.managedObjectContext!)
+                
+            }
+            do {
+                try self.managedObjectContext?.save()
+            } catch let error {
+                print("Core Data Error: \(error)")
+            }
+        }
+        printDatabaseStatistics()
+        print("done priting database statistics")
+    }
+    
+    private func printDatabaseStatistics() {
+        managedObjectContext?.performBlock {
+            if let results = try? self.managedObjectContext!.executeFetchRequest(NSFetchRequest(entityName: "TwitterUser")) {
+                print("\(results.count) twitter users")
+            }
+            
+            // a more efficient way to count objects
+            let tweetCount = self.managedObjectContext!.countForFetchRequest(NSFetchRequest(entityName: "Tweet") , error: nil)
+            print("\(tweetCount) tweets")
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "TweetersMentioningSearchTerm" {
+            if let tweetersTVC = segue.destinationViewController as? TweetersTableViewController {
+                tweetersTVC.mention = searchText!
+                tweetersTVC.managedObjectContext = managedObjectContext
+                
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = tableView.rowHeight
